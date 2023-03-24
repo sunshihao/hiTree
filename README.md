@@ -8,4 +8,5 @@ plan the following things
 
 * [x]  virtual scroll
 * [x]  tree
-* [ ]  style
+* [x]  tailwind
+* [ ]  react-beautiful-dnd style

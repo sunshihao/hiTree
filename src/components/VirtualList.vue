@@ -418,4 +418,3 @@
   export type VtlistType = InstanceType<typeof cpt>;
   </script>
   
-  <style></style>

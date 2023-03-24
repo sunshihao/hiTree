@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { name } from "./package.json"
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import { name } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,21 +8,26 @@ export default defineConfig({
     exclude: ["vue-demi"],
   },
   plugins: [vue()],
+  css: {
+    postcss: {
+      plugins: [require("tailwindcss"), require("autoprefixer")],
+    },
+  },
   build: {
     lib: {
-      // entry: resolve(__dirname, 'packages/index.js'), 
+      // entry: resolve(__dirname, 'packages/index.js'),
       name,
-      entry: "src/index.ts"
+      entry: "src/index.ts",
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖
-      external: ['vue'],
+      external: ["vue"],
       output: {
         // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
         globals: {
-          vue: 'Vue',
+          vue: "Vue",
         },
       },
-    }
+    },
   },
-})
+});
